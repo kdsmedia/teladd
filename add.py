@@ -10,8 +10,8 @@ import requests
 from PIL import Image, ImageTk  # Menambahkan PIL untuk memanipulasi gambar
 
 # Link Saluran YouTube untuk langganan
-YOUTUBE_CHANNEL_URL = "https://www.youtube.com/channel/UCYOURCHANNELID"  # Ganti dengan link saluran YouTube Anda
-YOUTUBE_CHANNEL_ID = "UCYOURCHANNELID"  # Ganti dengan ID saluran YouTube Anda
+YOUTUBE_CHANNEL_URL = "https://www.youtube.com/channel/UCrnUmk1Mh5LAeXGHwFryRHg"  # Ganti dengan link saluran YouTube Anda
+YOUTUBE_CHANNEL_ID = "UCrnUmk1Mh5LAeXGHwFryRHg"  # Ganti dengan ID saluran YouTube Anda
 
 # Gambar untuk proses penambahan member
 LOADING_IMAGE_PATH = "loading.gif"  # Ganti dengan path gambar animasi atau statis yang menarik
@@ -19,7 +19,7 @@ LOADING_IMAGE_PATH = "loading.gif"  # Ganti dengan path gambar animasi atau stat
 # Fungsi untuk memeriksa apakah pengguna telah berlangganan ke saluran YouTube
 def check_youtube_subscription(youtube_channel_id):
     # API Key YouTube
-    api_key = "YOUR_YOUTUBE_API_KEY"  # Ganti dengan API Key YouTube Anda
+    api_key = "AIzaSyAEfBOL7V2nybMC6crqtMzICIwHUa2wGpM"  # Ganti dengan API Key YouTube Anda
     youtube_api_url = f"https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id={youtube_channel_id}&key={api_key}"
     response = requests.get(youtube_api_url)
     data = response.json()
