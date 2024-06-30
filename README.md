@@ -22,7 +22,11 @@ Script **Telegram Adder** adalah alat untuk menambahkan member ke grup atau salu
      ```bash
      pip install telethon requests pillow
      ```
+3. ***Clone This Script
+     ```bash
+     git clone https://github.com/kdsmedia/teladd
+     ```
 3. ***Run
-   ```bash
-     pip install telethon requests pillow
+     ```bash
+     add.py
      ```
