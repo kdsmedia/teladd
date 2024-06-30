@@ -45,7 +45,7 @@ async def fetch_members_from_group(client, link):
                 file.write(f'{member.id}\n')
         
         print("Members fetched and saved to members.txt")
-        messagebox.showinfo("Success", "Members have been fetched and saved to members.txt")
+        messagebox.showinfo("Berhasil", "Member telah diculik dan disimpan ke member.txt")
         
         # Kembali ke menu utama
         show_main_menu()
@@ -64,9 +64,9 @@ async def add_users_to_group(client, link):
         # Memeriksa apakah pengguna telah berlangganan YouTube
         if not check_youtube_subscription(YOUTUBE_CHANNEL_ID):
             # Menampilkan jendela untuk meminta pengguna untuk berlangganan YouTube
-            response = messagebox.askyesno("Subscribe to YouTube", f"Please subscribe to our YouTube channel: {YOUTUBE_CHANNEL_URL}\n\nAfter subscribing, click 'Yes' to continue adding members.")
+            response = messagebox.askyesno("Subscribe ke YouTube", f"Silakan subscribe channel YouTube kami: {YOUTUBE_CHANNEL_URL}\n\nSetelah subscribe, klik 'Yes' untuk terus menambahkan member.")
             if not response:
-                messagebox.showwarning("Warning", "You need to subscribe to the YouTube channel to continue.")
+                messagebox.showwarning("Peringatan", "Wajib Subscribe Channel YouTube untuk melanjutkan.")
                 return
             
             # Membuka URL YouTube di browser
@@ -76,10 +76,10 @@ async def add_users_to_group(client, link):
             await asyncio.sleep(10)  # Tunggu selama 10 detik, sesuaikan jika perlu
             
             # Menampilkan jendela terima kasih setelah berlangganan
-            messagebox.showinfo("Thank You", "Thank you for subscribing! Now the process of adding members will begin.")
+            messagebox.showinfo("Terima Kasih", "Terima kasih telah Subscribe! Sekarang proses penambahan anggota akan dimulai.")
         else:
             # Langganan sudah ada, lanjutkan proses
-            messagebox.showinfo("Info", "You are already subscribed! Proceeding to add members.")
+            messagebox.showinfo("Info", "Anda sudah Subscribe! Lanjutkan untuk menambahkan member.")
 
         # Tampilkan jendela loading saat menambahkan member
         show_loading_window()
@@ -93,7 +93,7 @@ async def add_users_to_group(client, link):
             await client(InviteToChannelRequest(entity, [member_id]))
         
         print("Members added to the group/channel")
-        messagebox.showinfo("Success", "Members have been added to the group/channel")
+        messagebox.showinfo("Berhasil", "Member telah ditambahkan ke grup/channel")
         
         # Tutup jendela loading
         loading_window.destroy()
@@ -118,7 +118,7 @@ def show_loading_window():
     loading_window.geometry("300x150")
     loading_window.configure(bg="#f8f9fa")
 
-    tk.Label(loading_window, text="Adding members, please wait...", bg="#f8f9fa", font=("Helvetica", 12)).pack(pady=10)
+    tk.Label(loading_window, text="Menambahkan member, harap tunggu...", bg="#f8f9fa", font=("Helvetica", 12)).pack(pady=10)
 
     # Menambahkan gambar loading
     img = Image.open(LOADING_IMAGE_PATH)
@@ -135,27 +135,27 @@ def show_main_menu():
         if link:
             asyncio.run(fetch_members_from_group(client, link))
         else:
-            messagebox.showwarning("Warning", "Please enter a group/channel link")
+            messagebox.showwarning("Peringatan", "Silakan masukkan link grup/cnannel")
 
     def add_members():
         link = link_entry.get()
         if link:
             asyncio.run(add_users_to_group(client, link))
         else:
-            messagebox.showwarning("Warning", "Please enter a group/channel link")
+            messagebox.showwarning("Peringatan", "Silakan masukkan link grup/cnannel")
 
     # Menyiapkan jendela utama
     global window
     window = tk.Tk()
-    window.title("Telegram Adder")
+    window.title("RAJA CULIK MEMBER TELEGRAM")
 
-    tk.Label(window, text="Enter group/channel link").pack(pady=10)
+    tk.Label(window, text="Masukan Link group/channel").pack(pady=10)
     global link_entry
     link_entry = tk.Entry(window, width=50)
     link_entry.pack(pady=5)
 
-    tk.Button(window, text="Fetch Members", command=fetch_members).pack(pady=10)
-    tk.Button(window, text="Add Members", command=add_members).pack(pady=10)
+    tk.Button(window, text="Culik Members", command=fetch_members).pack(pady=10)
+    tk.Button(window, text="Tambah Members", command=add_members).pack(pady=10)
 
     window.mainloop()
 
@@ -166,7 +166,7 @@ def main():
     # Mengambil API ID, API Hash, dan nomor telepon dari pengguna
     api_id = simpledialog.askstring("API ID", "Enter your API ID:")
     api_hash = simpledialog.askstring("API Hash", "Enter your API Hash:")
-    phone_number = simpledialog.askstring("Phone Number", "Enter your phone number (with country code, e.g. +1234567890):")
+    phone_number = simpledialog.askstring("Nomor Tele", "Enter your phone number (with country code, e.g. +6234567890):")
 
     # Menginisialisasi klien Telegram
     client = TelegramClient(phone_number, api_id, api_hash)
