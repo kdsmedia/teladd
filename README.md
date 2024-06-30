@@ -17,7 +17,7 @@ Script **Telegram Adder** adalah alat untuk menambahkan member ke grup atau salu
 1. ***Python 3.7+***
    - [Download Python](https://www.python.org/downloads/) dan pastikan `python` dan `pip` terpasang dengan benar.
 
-2. **Paket Python**
+2. ***Paket Python**
    - Install paket yang diperlukan dengan perintah berikut:
      ```bash
      pip install telethon requests pillow
